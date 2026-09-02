@@ -11,7 +11,7 @@
     --accent-dark: #a8442a;
     --line: #e3d9c9;
     --text-muted: #6b6459;
-    --radius: 4px;
+    --radius: 67px;
 }
 
 body {
@@ -189,4 +189,8 @@ h1, .brand {
     .social-links {
         justify-content: flex-start;
     }
+
 }
+    .self_intro {
+        color: #000000;
+    }
