@@ -60,7 +60,7 @@ h1, .brand {
     color: var(--accent-light);
     text-decoration: none;
     font-size: 0.95rem;
-    font-family:'Times New Roman', Times, serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 .hero {
     padding: 4.5rem 0 5rem;
