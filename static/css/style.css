@@ -8,6 +8,7 @@
     --ink: #1c1917;
     --paper: #E0BBE4;
     --accent: #957DAD;
+    --accent-light: #3c0e5a;
     --accent-dark: #D291BC;
     --line: #e3d9c9;
     --text-muted: #6b6459;
@@ -31,7 +32,8 @@ h1, .brand {
     padding: 0 1.5rem;
 }
 .site-header {
-    border-bottom: 1px solid var(--line);
+    background-color: var(--accent);
+    border-bottom: 1px solid var(--accent);
 }
 
 .site-header .container {
@@ -46,6 +48,7 @@ h1, .brand {
     font-weight: 700;
     color: var(--ink);
     text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .site-header nav {
@@ -54,9 +57,10 @@ h1, .brand {
 }
 
 .site-header nav a {
-    color: var(--ink);
+    color: var(--accent-light);
     text-decoration: none;
     font-size: 0.95rem;
+    font-family:'Times New Roman', Times, serif;
 }
 .hero {
     padding: 4.5rem 0 5rem;
@@ -83,7 +87,7 @@ h1, .brand {
     font-size: 0.85rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: var(--accent-dark);
+    color: var(--accentlight);
     font-weight: 700;
     margin-bottom: 0.75rem;
 
@@ -175,7 +179,7 @@ h1, .brand {
     padding: 1.5rem;
     color: var(--text-muted);
     font-size: 0.85rem;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--accent);
 }
 
 @media (max-width: 600px) {
@@ -202,7 +206,7 @@ h1, .brand {
 }
 .content-section {
     padding: 3rem 0;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--accent);
 }
 
 .content-section h2 {
