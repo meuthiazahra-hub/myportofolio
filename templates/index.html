@@ -8,32 +8,30 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <header class="site-header">
         <div class="container">
             <a href="#profile" class="brand">{{ name }}</a>
             <nav>
-                <nav>
-                    <a href="#profile">Profile</a>
-                    <a href="#skills">Skills</a>
-                    <a href="/experience/">Experience</a>
-                    <a href="#education">Education</a>
-                    <a href="#projects">Projects</a>
-                </nav>
+                <a href="#profile" class="active">Profile</a>
+                <a href="#skills">Skills</a>
+                <a href="/experience/">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
             </nav>
         </div>
     </header>
+
     <main>
         <section class="hero" id="profile">
             <div class="container hero-grid">
+                <div class="hero-text">
                 <div class="hero-identity">
                     <p class="hero-kicker">Computer Science &middot; Universitas Indonesia</p>
-                    <h1>{{ name }}</h1>
-                </div>
-                <div class="hero-photo">
-                    <div class="photo-block"></div>
-                    <img class="avatar" src="/static/img/Meuthia.png" alt="Photo of {{ name }}">
+                    <h1>Hi, it's <span class="highlight">{{ name }}</span></h1>
+                    <h2>I'm a <span id="typewriter" class="highlight"></span></h2>
                 </div>
                 <div class="hero-details">
                     <p class="bio">{{ bio }}</p>
@@ -48,68 +46,156 @@
                         </div>
                     </dl>
                     <div class="social-links">
-                        <a href="https://github.com/meuthiazahra-hub" class="social-link">GitHub</a>
-                        <a href="https://www.linkedin.com/in/meuthia-zahra-yanuci-a939b4351/" class="social-link">LinkedIn</a>
-                        <a href="mailto: meuthia.zahra@ui.ac.id" class="social-link">Email</a>
+                        <a href="https://github.com/meuthiazahra-hub" class="social-link" aria-label="GitHub">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/meuthia-zahra-yanuci-a939b4351/" class="social-link" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:meuthia.zahra@ui.ac.id" class="social-link" aria-label="Email">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                </div>
+                <div class="hero-photo">
+                    <div class="photo-block"></div>
+                    <img class="avatar" src="/static/img/Meuthia.png" alt="Photo of {{ name }}">
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section skills-dark" id="skills">
+            <div class="container">
+                <h2>Skills</h2>
+                <div class="skill-grid">
+                    <div class="skill-card">
+                        <div class="skill-icon-area" style="background: linear-gradient(135deg, #306998, #FFD43B);">
+                            <i class="fa-brands fa-python"></i>
+                        </div>
+                        <h3>Python</h3>
+                        <p class="skill-subtitle">Backend &amp; Scripting</p>
+                        <p class="skill-description">
+                            Used for building logic, automation, and backend features across coursework and personal projects, including data-driven scripts and Django-based applications.
+                        </p>
+                        <a href="#projects" class="see-more">See more &rarr;</a>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon-area" style="background: linear-gradient(135deg, #f89820, #5382a1);">
+                            <i class="fa-brands fa-java"></i>
+                        </div>
+                        <h3>Java</h3>
+                        <p class="skill-subtitle">Object-Oriented Programming</p>
+                        <p class="skill-description">
+                            Applied in coursework projects involving simulation and visualization, including a Greenfoot-based program modeling infection and recovery dynamics.
+                        </p>
+                        <a href="#projects" class="see-more">See more &rarr;</a>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon-area" style="background: linear-gradient(135deg, #e34c26, #264de4);">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <h3>HTML &amp; CSS</h3>
+                        <p class="skill-subtitle">Web Structure &amp; Styling</p>
+                        <p class="skill-description">
+                            Core skills used to design and build this very portfolio, including responsive layouts, custom animations, and component-based styling.
+                        </p>
+                        <a href="#projects" class="see-more">See more &rarr;</a>
+                    </div>
+
+                    <div class="skill-card">
+                        <div class="skill-icon-area" style="background: linear-gradient(135deg, #f05133, #1c1917);">
+                            <i class="fa-brands fa-git-alt"></i>
+                        </div>
+                        <h3>Git</h3>
+                        <p class="skill-subtitle">Version Control</p>
+                        <p class="skill-description">
+                            Used to track changes, manage commit history, and collaborate on coursework, following consistent commit conventions across every project.
+                        </p>
+                        <a href="https://github.com/meuthiazahra-hub" class="see-more">See more &rarr;</a>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="content-section" id="skills">
-    <div class="container">
-        <h2>Skills</h2>
-        <ul class="skill-list">
-            <li>Python</li>
-            <li>Java</li>
-            <li>HTML &amp; CSS</li>
-            <li>Git</li>
-        </ul>
-    </div>
-</section>
 
+        <section class="content-section education-timeline" id="education">
+            <div class="container">
+                <h2>Education</h2>
 
-<section class="content-section" id="education">
-    <div class="container">
-        <h2>Education</h2>
-        <div class="timeline-item">
-            <div class="timeline-content">
-            <h3>Universitas Indonesia</h3>
-            <img src="/static/img/univindo.jpg" alt="Screenshot Universitas Indonesia" class="timeline-logo">
-            <p class="timeline-date">2025 - Now</p>
-            <p>S1 Ilmu Komputer, International Class</p>
+                <div class="timeline-track">
+                    <div class="timeline-node">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <img src="/static/img/univindo.jpg" alt="Logo Universitas Indonesia" class="timeline-logo">
+                            <div class="timeline-content">
+                                <p class="timeline-date">2025 &mdash; Now</p>
+                                <h3>Universitas Indonesia</h3>
+                                <p>S1 Ilmu Komputer, International Class</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-node">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-card">
+                            <img src="/static/img/sman77.jpg" alt="Logo SMAN 77 Jakarta" class="timeline-logo">
+                            <div class="timeline-content">
+                                <p class="timeline-date">2021 &mdash; 2024</p>
+                                <h3>SMAN 77 Jakarta</h3>
+                                <p>Science and Mathematics Class</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="timeline-item">
-            <div class="timeline-content">
-            <h3>SMAN 77 Jakarta</h3>
-            <img src="/static/img/sman77.jpg" alt="Screenshot SMAN 77 Jakarta" class="timeline-logo">
-            <p class="timeline-date">2021 - 2024</p>
-            <p>Science and Mathematics Class</p>
-        </div>
-    </div>
-</section>
+        </section>
 
-<section class="content-section" id="projects">
-    <div class="container">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3>Portofolio PBD Project</h3>
-            <img src="/static/img/portofolio-pbd.png" alt="Screenshot Portofolio PBD Project" class="project-image">
-            <p>All description about my self and skills.</p>
-        </div>
-        <div class="project-card">
-            <h3>Programming Task Foundation of Programming 2</h3>
-            <img src="/static/img/tugaspemrograman.png" alt="Screenshot Portofolio PBD Project" class="project-image">
-            <p>Using java and greenfoot for representation of covid 19 infection and healing.</p>
-        </div>
-        <div class="project-card">
-            <h3>Local web for Nutrition Competition called "Dinner Sehat"</h3>
-            <img src="/static/img/dinner-sehat.png" alt="Screenshot Portofolio PBD Project" class="project-image">
-            <p>Using html and css for creating a responsive website.</p>
-        </div>
-    </div>
-    </div>
-</section>
+        <section class="content-section projects-dark" id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="project-grid">
+
+                    <div class="project-card-dark">
+                        <div class="project-image-area">
+                            <img src="/static/img/portofolio-pbd.png" alt="Screenshot Portofolio PBD Project">
+                        </div>
+                        <h3>Portofolio PBD Project</h3>
+                        <p class="project-subtitle">Personal Portfolio Website</p>
+                        <p class="project-description">
+                            All description about my self and skills.
+                        </p>
+                        <a href="https://github.com/meuthiazahra-hub" class="see-more">See more &rarr;</a>
+                    </div>
+
+                    <div class="project-card-dark">
+                        <div class="project-image-area">
+                            <img src="/static/img/tugaspemrograman.png" alt="Screenshot Programming Task Foundation of Programming 2">
+                        </div>
+                        <h3>COVID-19 Simulation</h3>
+                        <p class="project-subtitle">Foundation of Programming 2 Task</p>
+                        <p class="project-description">
+                            Using java and greenfoot for representation of covid 19 infection and healing.
+                        </p>
+                        <a href="https://github.com/meuthiazahra-hub" class="see-more">See more &rarr;</a>
+                    </div>
+
+                    <div class="project-card-dark">
+                        <div class="project-image-area">
+                            <img src="/static/img/dinner-sehat.png" alt="Screenshot Dinner Sehat">
+                        </div>
+                        <h3>Dinner Sehat</h3>
+                        <p class="project-subtitle">Nutrition Competition Website</p>
+                        <p class="project-description">
+                            Using html and css for creating a responsive website.
+                        </p>
+                        <a href="https://github.com/meuthiazahra-hub" class="see-more">See more &rarr;</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer class="site-footer">
@@ -117,5 +203,45 @@
             <p>&copy; 2026 {{ name }}. Fakultas Ilmu Komputer, Universitas Indonesia.</p>
         </div>
     </footer>
+    <script>
+    const phrases = [
+        "Learner Enthusiast",
+        "Data Science Enthusiast",
+        "Web Developer",
+        "CS Student"
+    ];
+
+    const typewriterEl = document.getElementById("typewriter");
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentPhrase = phrases[phraseIndex];
+
+        if (isDeleting) {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typewriterEl.textContent = currentPhrase.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typingSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            typingSpeed = 1500; // jeda sebelum mulai menghapus
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            typingSpeed = 300; // jeda sebelum mulai ngetik frasa berikutnya
+        }
+
+        setTimeout(typeEffect, typingSpeed);
+    }
+
+    document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
 </body>
 </html>
