@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from main.models import Experience
+from main.models import Experience, ProjectItem
 
 
 class MainTest(TestCase):
@@ -56,3 +56,31 @@ class MainTest(TestCase):
         self.assertFalse(self.experience.is_ongoing)
         self.assertContains(response, "Selesai")
         self.assertNotContains(response, "Sedang berlangsung")
+
+class ProjectPageTest(TestCase):
+    def setUp(self):
+        self.project = ProjectItem.objects.create(
+            title="Portofolio PBD Project",
+            subtitle="Personal Portfolio Website",
+            description="All description about my self and skills.",
+            link_url="https://github.com/meuthiazahra-hub"
+        )
+
+    def test_projects_page_is_accessible_and_uses_correct_template(self):
+        response = self.client.get(reverse("main:show_projects_page"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "projects_page.html")
+        self.assertContains(response, self.project.title)
+        self.assertContains(response, self.project.subtitle)
+
+    def test_empty_projects_page(self):
+        ProjectItem.objects.all().delete()
+        response = self.client.get(reverse("main:show_projects_page"))
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "projects_page.html")
+        self.assertContains(response, "Belum ada data proyek yang ditambahkan ke database.")
+
+    def test_project_model_string_representation(self):
+        self.assertEqual(str(self.project), "Portofolio PBD Project")

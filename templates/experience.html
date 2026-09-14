@@ -29,25 +29,35 @@
                 <p class="section-kicker">My Journey until Now</p>
                 <h1>Experience</h1>
 
-                <div class="experience-grid">
-                    <article class="experience-card">
-                        <span class="experience-category">Part-time</span>
-                        <h2>Staff at COMPFEST 18</h2>
-                        <p class="experience-description">
-                            Organizing and managing the event of seminar, ensuring smooth operations and assisting participants.
-                        </p>
-                        <p class="experience-status">on-going</p>
-                    </article>
-
-                    <article class="experience-card">
-                        <span class="experience-category">Part-time</span>
-                        <h2>Staff at BEM Fasilkom UI</h2>
-                        <p class="experience-description">
-                            Organizing and managing various Cultural and Arts events in Faculty of Computer Science, Universitas Indonesia
-                        <p class="experience-status">Sedang berlangsung</p>
-                    </article>
-
-                    <!-- Tambahin <article> baru di sini untuk experience lainnya -->
+                <div class="experience-list">
+                    {% for exp in experience_list %}
+                        <article class="experience-row">
+                            {% if exp.logo %}
+                            <div class="experience-logo-area">
+                                <img src="{{ exp.logo.url }}" alt="{{ exp.title }} logo">
+                            </div>
+                            {% endif %}
+                            <div class="experience-body">
+                                <span class="experience-category">{{ exp.get_category_display }}</span>
+                                <p class="experience-date">
+                                    {% if exp.is_ongoing %}
+                                        On-going
+                                    {% else %}
+                                        {{ exp.start_year }} &ndash; {{ exp.end_year }}
+                                    {% endif %}
+                                </p>
+                                <h2>{{ exp.title }}</h2>
+                                <p class="experience-description">
+                                    {{ exp.description }}
+                                </p>
+                                <p class="experience-status">
+                                    {% if exp.is_ongoing %}Sedang berlangsung{% else %}Selesai{% endif %}
+                                </p>
+                            </div>
+                        </article>
+                    {% empty %}
+                        <p>Belum ada pengalaman yang ditambahkan.</p>
+                    {% endfor %}
                 </div>
             </div>
         </section>
