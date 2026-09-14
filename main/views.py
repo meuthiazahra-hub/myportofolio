@@ -27,7 +27,7 @@ def show_experience(request):
 def show_projects(request):
     projects = ProjectItem.objects.all()
     context = {
-        'name': 'Meuthia Zahra Yanuci',
+        'name': 'Meuthia',
         'projects': projects,
     }
     return render(request, 'projects.html', context)
@@ -35,7 +35,7 @@ def show_projects(request):
 def show_projects_page(request):
     projects = ProjectItem.objects.all()
     context = {
-        'name': 'Meuthia Zahra Yanuci',
+        'name': 'Meuthia',
         'projects': projects,
     }
     return render(request, 'projects_page.html', context)
