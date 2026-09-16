@@ -158,3 +158,4 @@ MAILERS = {
         'BACKEND': 'django.core.mail.backends.console.EmailBackend',
     },
 }
+CSRF_TRUSTED_ORIGINS = ["https://meuthia-zahra-myportofolio.pws.cs.ui.ac.id/"]
