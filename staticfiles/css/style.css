@@ -441,6 +441,10 @@ span {
 .projects-dark {
     background-color: var(--ink);
 }
+.projects-dark .content-section {
+    padding: 3rem 0;
+    min-height: 100vh;
+}
 
 .projects-dark h2 {
     color: var(--paper);
