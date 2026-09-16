@@ -1,13 +1,14 @@
 from django.urls import path
 
-from main.views import show_main, show_experience, show_projects, show_projects_page, create_project
+from main.views import show_main, show_experience, show_projects, get_projects_json, create_project, delete_project
 
 app_name = "main"
 
 urlpatterns = [
     path("", show_main, name="show_main"),
     path("experience/", show_experience, name="show_experience"),
-    path('projects/', show_projects, name='show_projects'),
-    path('projects-page/', show_projects_page, name='show_projects_page'),
-    path('projects/add/', create_project, name='create_project'),
+    path("projects/", show_projects, name="show_projects"),
+    path("projects/add/", create_project, name="create_project"),
+    path("api/projects/", get_projects_json, name="get_projects_json"),
+    path("projects/<uuid:project_id>/delete/", delete_project, name="delete_project"),
 ]

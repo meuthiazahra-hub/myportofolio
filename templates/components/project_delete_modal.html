@@ -1,0 +1,11 @@
+<form method="post"
+      action="{% url 'main:delete_project' project.id %}"
+      class="project-delete-form"
+      onsubmit="return confirm('Hapus project {{ project.title|escapejs }}?');">
+    {% csrf_token %}
+    <button type="submit"
+            class="button button-danger"
+            aria-label="Hapus {{ project.title }}">
+        Hapus Proyek
+    </button>
+</form>

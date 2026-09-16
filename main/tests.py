@@ -2,7 +2,7 @@ from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from main.models import Experience, ProjectItem
+from main.models import Experience, Project
 
 
 class MainTest(TestCase):
@@ -59,28 +59,36 @@ class MainTest(TestCase):
 
 class ProjectPageTest(TestCase):
     def setUp(self):
-        self.project = ProjectItem.objects.create(
+        self.project = Project.objects.create(
             title="Portofolio PBD Project",
-            subtitle="Personal Portfolio Website",
             description="All description about my self and skills.",
-            link_url="https://github.com/meuthiazahra-hub"
+            tech_stack="Django, HTML, CSS",
+            project_url="https://github.com/meuthiazahra-hub",
         )
 
     def test_projects_page_is_accessible_and_uses_correct_template(self):
-        response = self.client.get(reverse("main:show_projects_page"))
+        response = self.client.get(reverse("main:show_projects"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "projects_page.html")
+        self.assertTemplateUsed(response, "projects.html")
         self.assertContains(response, self.project.title)
-        self.assertContains(response, self.project.subtitle)
+        self.assertContains(response, self.project.tech_stack)
 
     def test_empty_projects_page(self):
-        ProjectItem.objects.all().delete()
-        response = self.client.get(reverse("main:show_projects_page"))
+        Project.objects.all().delete()
+        response = self.client.get(reverse("main:show_projects"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "projects_page.html")
-        self.assertContains(response, "Belum ada data proyek yang ditambahkan ke database.")
+        self.assertTemplateUsed(response, "projects.html")
+        self.assertContains(response, "Belum ada proyek yang ditambahkan.")
 
     def test_project_model_string_representation(self):
         self.assertEqual(str(self.project), "Portofolio PBD Project")
+
+    def test_delete_project(self):
+        response = self.client.post(
+            reverse("main:delete_project", args=[self.project.id])
+        )
+
+        self.assertRedirects(response, reverse("main:show_projects"))
+        self.assertFalse(Project.objects.filter(id=self.project.id).exists())
