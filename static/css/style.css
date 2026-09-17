@@ -727,6 +727,7 @@ span {
     animation: blink 0.8s steps(1) infinite;
 }
 
+
 @keyframes blink {
     50% { opacity: 0; }
 }
@@ -748,3 +749,318 @@ body.fade-out {
     from { opacity: 1; }
     to { opacity: 0; }
 }
+/* ===== PROJECTS PAGE (reuses .experience-section as dark background) ===== */
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.project-header h1 {
+    color: var(--paper);
+    font-size: 3.2rem;
+    margin: 0;
+}
+
+.project-add-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    background-color: var(--accent);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.4rem;
+    padding: 0.9rem 1.8rem;
+    border-radius: var(--radius);
+    transition: all 0.25s ease;
+    text-decoration: none;
+}
+
+.project-add-button:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-3px);
+}
+
+.project-add-button span {
+    font-size: 1.6rem;
+    line-height: 1;
+}
+
+.project-search {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+}
+
+.project-search__input {
+    flex: 1;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius);
+    border: 2px solid var(--accent);
+    background-color: #fff;
+    color: var(--ink);
+    font-size: 1.5rem;
+}
+
+.project-search__input:focus {
+    outline: none;
+    border-color: var(--accent-dark);
+}
+
+/* ===== Project cards (scoped so it doesn't affect Experience page) ===== */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40rem, 40rem));
+    gap: 2.5rem;
+    justify-content: start;
+}
+
+.project-grid .experience-card {
+    background: linear-gradient(160deg, #2a1f2e, #1c1719);
+    border: none;
+    border-radius: 2.4rem;
+    padding: 2.4rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-grid .experience-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+}
+
+.project-grid .experience-card h2 {
+    color: var(--paper);
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin: 0 0 0.6rem;
+}
+
+.project-grid .experience-category {
+    display: inline-block;
+    color: var(--accent-dark);
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    margin-bottom: 1rem;
+}
+
+.project-grid .experience-description {
+    color: #cbb8c9;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border: none;
+    border-radius: 1.6rem;
+    margin-bottom: 2rem;
+    transition: transform 0.3s ease;
+}
+
+.project-grid .experience-card:hover .project-image {
+    transform: scale(1.03);
+}
+
+.project-card-actions {
+    margin-top: auto;
+}
+
+.project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.empty-state {
+    color: #cbb8c9;
+    font-size: 1.6rem;
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 0;
+}
+
+/* ===== Shared buttons ===== */
+
+.button {
+    display: inline-block;
+    border-radius: var(--radius);
+    padding: 1rem 1.8rem;
+    background-color: var(--accent);
+    color: var(--ink);
+    font-weight: 700;
+    font-size: 1.4rem;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+.button:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-3px);
+}
+
+.button-secondary {
+    background-color: transparent;
+    border: 2px solid var(--paper);
+    color: var(--paper);
+}
+
+.button-secondary:hover {
+    background-color: var(--paper);
+    color: var(--ink);
+}
+
+.button-danger {
+    background-color: #b42318;
+    color: #fff;
+}
+
+.button-danger:hover {
+    background-color: #8a1a12;
+    transform: translateY(-3px);
+}
+
+/* ===== Add Project form ===== */
+
+.project-form {
+    max-width: 60rem;
+    margin-top: 2rem;
+}
+
+.form-group {
+    margin-bottom: 2rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 700;
+    color: var(--paper);
+    font-size: 1.5rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem 1.5rem;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius);
+    font: inherit;
+    font-size: 1.5rem;
+    background-color: #fff;
+    color: var(--ink);
+    transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-dark);
+}
+
+.form-error {
+    color: #ff8a80;
+    font-size: 1.3rem;
+    margin-top: 0.5rem;
+}
+
+/* ===== Delete confirmation modal (from project_delete_modal.html) ===== */
+
+.project-delete-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    padding: 1rem;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+}
+
+.project-delete-modal:popover-open {
+    display: flex;
+}
+
+.project-delete-modal__backdrop {
+    position: absolute;
+    inset: 0;
+    border: 0;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.project-delete-modal__content {
+    position: relative;
+    z-index: 1;
+    width: min(100%, 48rem);
+    max-height: 24rem;
+    padding: 2.5rem;
+    background: var(--ink);
+    border-radius: 2rem;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    color: var(--paper);
+}
+
+.project-delete-modal__content h2 {
+    margin: 0 0 1rem;
+    font-size: 2.2rem;
+}
+
+.project-delete-modal__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: transparent;
+    border: 0;
+    color: var(--paper);
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.project-delete-modal__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 700px) {
+    .project-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .project-search {
+        flex-direction: column;
+    }
+
+    .project-delete-modal {
+        align-items: flex-end;
+        padding: 0;
+    }
+
+    .project-delete-modal__content {
+        width: 100%;
+        border-radius: 2rem 2rem 0 0;
+    }
+}
+
+
+

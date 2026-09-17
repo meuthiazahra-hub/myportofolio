@@ -1,0 +1,21 @@
+{% load static %}
+<button type="button"
+        class="button button-secondary"
+        onclick="document.getElementById('delete-experience-modal-{{ experience.id }}').showModal()">
+    Delete
+</button>
+
+<dialog id="delete-experience-modal-{{ experience.id }}" class="delete-modal">
+    <form method="post" action="{% url 'main:delete_experience' experience.id %}">
+        {% csrf_token %}
+        <p>Apakah kamu yakin ingin menghapus pengalaman "<strong>{{ experience.title }}</strong>"?</p>
+        <div class="modal-actions">
+            <button type="submit" class="button">Ya, Hapus</button>
+            <button type="button"
+                    class="button button-secondary"
+                    onclick="document.getElementById('delete-experience-modal-{{ experience.id }}').close()">
+                Batal
+            </button>
+        </div>
+    </form>
+</dialog>
