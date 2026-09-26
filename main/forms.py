@@ -1,5 +1,5 @@
-from django.forms import ModelForm, TextInput, Textarea, URLInput, Select
-from main.models import Project, Experience
+from django.forms import ModelForm, TextInput, Textarea, URLInput, Select, DateInput
+from main.models import Project, Experience, Achievement
 class ProjectForm(ModelForm):
     class Meta:
         model = Project
@@ -75,7 +75,7 @@ class ExperienceForm(ModelForm):
             ),
             "description": Textarea(
                 attrs={
-                    "placeholder": "Ceritakan pengalamanmu di sini",
+                    "placeholder": "Explain your experience here",
                     "rows": 3,
                 }
             ),
@@ -86,3 +86,31 @@ class ExperienceForm(ModelForm):
                 }
             ),
         }
+class AchievementForm(ModelForm):
+    class Meta:
+        model= Achievement
+        fields = [
+                    "title",
+                    "description",
+                    "level",
+                    "achieved_at",
+                ]
+        labels = {"title": "Achievement Title",
+                  "description": "Description",
+                  "level": "Level",
+                  "achieved_at": "Achieved at",
+                  }
+        widgets = {
+            "title": TextInput(attrs={
+                "placeholder": "Juara 1 Lomba Coding",
+                "maxlength": 200,
+            }),
+            "description": Textarea(attrs={
+                "placeholder": "Ceritakan pencapaianmu",
+                "rows": 3,
+            }),
+            "level": Select(),
+            "achieved_at": DateInput(attrs={"type": "date"}),
+        }
+        
+

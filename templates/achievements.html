@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block meta %}
+    <title>Achievements - {{ name }}</title>
+{% endblock meta %}
+
+{% block content %}
+<main>
+    <section class="experience-section" id="achievements">
+        <div class="container">
+            <p class="section-kicker">My Achievements</p>
+            <div class="project-header">
+                <h1>My Achievements</h1>
+                <a href="{% url 'main:create_achievement' %}" class="button project-add-button">
+                    <span aria-hidden="true">+</span> Tambah Achievement
+                </a>
+            </div>
+
+            <div class="experience-grid">
+                {% for achievement in achievements %}
+                <article class="experience-card">
+                    {% if achievement.is_top_tier %}
+                        <span class="top-tier-label">Top Tier</span>
+                    {% endif %}
+                    <h2>{{ achievement.title }}</h2>
+                    <span class="experience-category">{{ achievement.level }}</span>
+                    <p class="experience-description">{{ achievement.description }}</p>
+                    <p class="experience-status">{{ achievement.achieved_at|date:"d M Y" }}</p>
+                </article>
+                {% empty %}
+                    <p class="empty-state">No achievements have been added yet.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock content %}

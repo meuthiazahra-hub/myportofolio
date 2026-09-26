@@ -43,3 +43,20 @@ class Project(models.Model):
 
     def __str__(self):
         return self.title
+
+class Achievement(models.Model):
+    LEVEL_CHOICES = [
+        ('campus', 'Campus'),
+        ('national', 'National'),
+        ('international', 'International'),
+    ]
+    title = models.CharField(max_length = 200)
+    description = models.TextField()
+    level = models.CharField(max_length=20, choices=LEVEL_CHOICES, default='campus')
+    achieved_at = models.DateField()
+    @property
+    def is_top_tier(self):
+        return self.level in ['national', 'international']
+
+
+    

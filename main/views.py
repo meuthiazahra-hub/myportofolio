@@ -3,8 +3,8 @@ from django.core import serializers
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, redirect, render
 
-from main.forms import ProjectForm, ExperienceForm
-from main.models import Experience,  Project
+from main.forms import ProjectForm, ExperienceForm, AchievementForm
+from main.models import Experience,  Project, Achievement
 
 
 def show_main(request):
@@ -21,6 +21,7 @@ def show_main(request):
     return render(request, "index.html", context)
 
 
+#EXPERIENCE
 def show_experience(request):
     context = {
         "name": "Meuthia",
@@ -28,6 +29,7 @@ def show_experience(request):
     }
     return render(request, "experience.html", context)
 
+#PROJECTS
 def show_projects(request):
     projects = Project.objects.all()
     context = {
@@ -92,6 +94,8 @@ def delete_project(request, project_id):
         return redirect("main:show_projects")
 
     return redirect("main:show_projects")
+
+# EXPERIENCE ASSIGNMENT 3
 def get_experiences_json(request):
     title_query = request.GET.get("title", "").strip()
     experiences = Experience.objects.all()
@@ -162,3 +166,24 @@ def delete_experience(request, experience_id):
         return redirect("main:show_experience")
  
     return redirect("main:show_experience")
+
+# ACHIEVEMENTS
+def show_achievements(request):
+    achievements = Achievement.objects.all().order_by('-achieved_at')
+    context = {
+        'name': 'Meuthia',
+        'achievements': achievements,
+    }
+    return render(request, "achievements.html", context)
+
+def create_achievement(request):
+    form= AchievementForm(request.POST or None)
+    if request.method == "POST" and form.is_valid():
+        form.save()
+        messages.success(request, "Achievement baru berhasil ditambahkan!")
+        return redirect("main:show_achievements")
+    context={
+        "name": "Meuthia",
+        "form": form,
+    }
+    return render(request, "achievement_form.html", context)
