@@ -1,5 +1,5 @@
 import uuid
-
+from django.conf import settings
 from django.db import models
 
 
@@ -40,6 +40,11 @@ class Project(models.Model):
     tech_stack = models.CharField(max_length=255)
     project_url = models.URLField(blank=True)
     project_image_url = models.URLField(blank=True, max_length=500)
+    starred_by = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        related_name="starred_projects",
+        blank=True,
+    )
 
     def __str__(self):
         return self.title

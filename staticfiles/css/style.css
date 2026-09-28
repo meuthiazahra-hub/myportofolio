@@ -80,6 +80,7 @@ h1, .brand {
 
 .site-header nav {
     display: flex;
+    align-items: center;
     gap: 2rem;
     margin-left: 4rem;
 }
@@ -99,6 +100,14 @@ h1, .brand {
     color: var(--ink);
     font-weight: 700;
     display: block;
+}
+
+.site-header nav .nav-user {
+    color: var(--ink);
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-left: 4rem;
+    border-bottom: 3px solid transparent;
 }
 
 
@@ -129,6 +138,12 @@ h1, .brand {
         padding: 1.5rem 0;
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
     }
+    .site-header nav .nav-user {
+        display: block;
+        margin: 0;
+        padding: 1.2rem 2.5rem;
+    }
+
     .site-header nav.active{
     display: block;
     }
@@ -910,4 +925,25 @@ span {
         width: 100%;
         text-align: center;
     }
+}
+.star-form {
+    display: inline;
+}
+
+.button-star {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: var(--ink);
+}
+
+.button-star.is-starred {
+    background: var(--accent);
+}
+
+.star-count {
+    padding: 0.05rem 0.4rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.25);
+    font-size: 0.8rem;
 }
