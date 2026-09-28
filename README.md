@@ -49,3 +49,22 @@ AI was most useful for accelerating repetitive, pattern-based work: once the Pro
 At the same time, I noticed the AI couldn't fully replace my own understanding — I still had to actually create the files in the right locations, run the server myself, and read the traceback to know what to paste back for help. The debugging process reinforced why things work the way they do (e.g., why an import has to exist before a name can be referenced in Python, why CSRF tokens matter, why serialization is a required step before returning model data as JSON) rather than just handing me a working answer with no explanation.
 
 Overall, I'd say AI was a helpful pair-programming partner for scaffolding and debugging, but the responsibility of understanding, testing, and integrating the code into my actual project remained on me.
+
+### AI Disclosure
+In the development of this project, AI (Gemini) was utilized as a collaborative coding assistant to accelerate the learning and implementation process. 
+
+* **Tools Used:** Gemini (as a personal AI collaborator).
+* **Prompt Strategy:** Providing contextual snippets of existing Django code (`models.py`, `views.py`, templates), specifying exact requirements based on tutorial modules, and asking for architectural breakdowns or CSS alignment solutions.
+* **Assisted Parts:**
+  - Designing the `ManyToManyField` and toggle view logic for the custom *Star* feature on the Experience model.
+  - Resolving layout and scoping issues for CSS selectors in the responsive navigation bar (`.nav-user`).
+  - Structuring standard Django security decorators (`@login_required`, `PermissionDenied`).
+
+### Critical Analysis of AI Limitations & Manual Fixes
+1. **Model Relational Context:** The AI initially assumed the star feature was exclusive to the Project model (as outlined in the base tutorial). Manual intervention was required to replicate and adapt the `starred_by` relationship specifically for the `Experience` model, ensuring database integrity and proper view routing (`toggle_star_experience`).
+2. **CSS Specificity Conflicts:** Initial AI suggestions for styling the logged-in username in the navbar used generic element selectors that conflicted with existing hover and active states in `style.css`. I manually adjusted the CSS selectors (targeting `.site-header nav .nav-user`) to match the exact font sizes and responsive breakpoints of the existing design system.
+
+### Personal Reflection
+At the same time, I noticed the AI couldn't fully replace my own understanding — I still had to actually create the files in the right locations, run the server myself, and read the traceback to know what to paste back for help. The debugging process reinforced why things work the way they do (e.g., why an import has to exist before a name can be referenced in Python, why CSRF tokens matter, why serialization is a required step before returning model data as JSON) rather than just handing me a working answer with no explanation.
+
+Overall, I'd say AI was a helpful pair-programming partner for scaffolding and debugging, but the responsibility of understanding, testing, and integrating the code into my actual project remained on me.
