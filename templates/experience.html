@@ -9,11 +9,13 @@
                 <p class="section-kicker">My Journey until Now</p>
                 <div class="project-header">
                     <h1>Experience</h1>
+                    {% if user.is_superuser %} 
                     <a href="{% url 'main:create_experience' %}"
                        class="button project-add-button">
                         <span aria-hidden="true">+</span>
                         Add Experience
                     </a>
+                    {% endif %} 
                 </div>
                 <form method="get"
                       action="{% url 'main:show_experience' %}"
@@ -53,8 +55,11 @@
                                 </p>
                                 <div class="project-card-actions">
                                     <div class="project-actions">
+                                    {% include "components/experience_star.html" with experience=exp %}
+                                    {% if user.is_superuser %}
                                         <a href="{% url 'main:update_experience' exp.id %}" class="button">Edit</a>
                                         {% include "components/experience_delete_modal.html" with experience=exp %}
+                                    {% endif %}
                                     </div>
                                 </div>
                             </div>

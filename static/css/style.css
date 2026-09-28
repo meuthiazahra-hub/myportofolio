@@ -116,6 +116,15 @@ h1, .brand {
     color: var(--accent-dark);
     transform: scale(1.08);
 }
+
+.site-header nav .nav-user {
+    color: var(--accent-light);
+    font-size: 1.8rem;
+    margin-left: 4rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
 @media (max-width: 995px) {
     .site-header nav {
         position: absolute;
@@ -144,6 +153,14 @@ h1, .brand {
         color: var(--ink);
         padding: 1rem;
         border-bottom: 3px solid var(--ink);
+    }
+    .site-header nav .nav-user {
+        display: block;
+        font-size: 1.8rem;
+        margin: 0;
+        padding: 1.2rem 2.5rem;
+        width: 100%;
+        color: var(--accent-light);
     }
 }
 section{
